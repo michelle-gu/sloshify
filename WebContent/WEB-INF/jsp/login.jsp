@@ -7,11 +7,11 @@ body {
 }
 </style>
 </head>
-<body>${message}
- 
+<body>
 	<br>
 	<br>
-	<div style="font-family: verdana; padding: 10px; border-radius: 10px; font-size: 12px; text-align:center;">
+	<div style="font-family: verdana; padding: 10px; border-radius: 10px; font-size: 40px; text-align:center;">
+	${message}
 	</div>
 </body>
 </html>

@@ -13,9 +13,23 @@ body {
 		<h2>
 			Home Page<br> <br>
 		</h2>
+	</div>
+	<div style="text-align:left; font-size: 40px;">
 		<h3>
-			<a href="login.html">Login </a>
+			<a href="login.html">Welcome </a>
 		</h3>
+		<h4>
+			<a href="dj.html">DJ </a>
+		</h4>
+		<h5>
+			<a href="library.html">Library </a>
+		</h5>
+		<h6>
+			<a href="events.html">Events </a>
+		</h6>
+		<h7>
+			<a href="about.html">About/Contact Us </a>
+		</h7>
 	</div>
 </body>
 </html>
