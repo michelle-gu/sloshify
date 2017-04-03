@@ -4,6 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.validation.BindException;
+
+
 @Controller
 public class sloshifyHome {
  
@@ -25,7 +30,6 @@ public class sloshifyHome {
 	
 	@RequestMapping("/library")
 	public ModelAndView library() {
- 
 		String message = "<br><div style='text-align:center;'>"
 				+ "<h3>SONG CLASSIFICATIONS GO HERE</div><br><br>";
 		return new ModelAndView("library", "message", message);
@@ -45,5 +49,15 @@ public class sloshifyHome {
 		String message = "<br><div style='text-align:center;'>"
 				+ "<h3>SLOSH INFO GOES HERE</div><br><br>";
 		return new ModelAndView("about", "message", message);
+	}
+	
+	@RequestMapping("/add")
+	protected ModelAndView onSubmit(HttpServletRequest request,
+			HttpServletResponse response, Object command, BindException errors)
+			throws Exception {
+
+			Song song = (Song)command;
+			return new ModelAndView("SongSuccess","song",song);
+
 	}
 }

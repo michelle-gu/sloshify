@@ -1,1 +1,5 @@
+com\sloshify\controller\SongValidator.class
 com\sloshify\controller\sloshifyHome.class
+com\sloshify\controller\Song.class
+com\sloshify\controller\DatabaseConfig.class
+com\sloshify\controller\inMem.class

@@ -30,6 +30,9 @@ body {
 		<h7>
 			<a href="about.html">About/Contact Us </a>
 		</h7>
+		<h8>
+			<a href="add.html">Add </a>
+		</h8>
 	</div>
 </body>
 </html>
