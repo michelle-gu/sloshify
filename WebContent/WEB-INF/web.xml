@@ -19,8 +19,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>sloshify</servlet-name>
-        <url-pattern>/login.jsp</url-pattern>
-        <url-pattern>/login.html</url-pattern>
-        <url-pattern>*.html</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>

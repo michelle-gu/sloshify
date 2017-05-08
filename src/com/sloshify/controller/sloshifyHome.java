@@ -1,9 +1,19 @@
 package com.sloshify.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.validation.BindException;
@@ -11,6 +21,14 @@ import org.springframework.validation.BindException;
 
 @Controller
 public class sloshifyHome {
+	
+	DatabaseConfig database;
+	
+	@PostConstruct
+	public void onStartup(){
+		database = new inMem(false);
+	}
+	
  
 	@RequestMapping("/login")
 	public ModelAndView helloWorld() {
@@ -51,13 +69,29 @@ public class sloshifyHome {
 		return new ModelAndView("about", "message", message);
 	}
 	
-	@RequestMapping("/add")
-	protected ModelAndView onSubmit(HttpServletRequest request,
-			HttpServletResponse response, Object command, BindException errors)
-			throws Exception {
-
-			Song song = (Song)command;
-			return new ModelAndView("SongSuccess","song",song);
-
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public ModelAndView addForm() {
+			return new ModelAndView("add", "command", new Song());
 	}
+	
+    @RequestMapping(value = "/add", method = RequestMethod.POST)  
+    public ModelAndView save(@ModelAttribute("song") Song song){  
+        
+    	database.add("default", song);
+    	
+        System.out.println(song.getName()+" "+ song.getBPM()+" "+ song.getDuration());  
+       
+          
+        return new ModelAndView("redirect:/viewsongs");//will display object data  
+    }  
+    
+    @RequestMapping("/viewsongs")  
+    public ModelAndView viewsongs(){  
+
+        List<Song> list= database.load("default");
+        
+        return new ModelAndView("viewsongs","list",list);  
+    }  
+	
+	
 }
