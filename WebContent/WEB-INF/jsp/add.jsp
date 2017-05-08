@@ -1,25 +1,3 @@
-<!-- <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<style type="text/css">
-body {
-	background-image: url('http://crunchify.com/bg.png');
-}
-</style>
-<head>
-    <title>Add Song</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-
-	<h1>Form</h1>
-    <form action="#" th:action="@{/add}" th:object="${song}" method="post">
-    	<p>Name:<input type="text" th:field="*{name}"/></p>
-        <p>Duration: <input type="number" th:field="*{BPM}" /></p>
-        <p>BPM: <input type="number" th:field="*{duration}" /></p> 
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p> 
-    </form>
-</body>
-</html> -->
 <style type="text/css">
 body {
 	background-image: url('http://crunchify.com/bg.png');
